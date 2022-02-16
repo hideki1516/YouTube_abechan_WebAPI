@@ -8,6 +8,7 @@ const App = () => {
 
     return (
         <div className='ui container' style={{marginTop: '20px'}}>
+            {/* onSearchSubmit関数をpropsとして渡す */}
             <SearchBar onSubmit={onSearchSubmit} />
         </div>
     );
