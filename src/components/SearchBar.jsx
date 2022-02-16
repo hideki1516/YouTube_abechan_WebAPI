@@ -12,20 +12,22 @@ const SearchBar = ({ onSubmit }) => {
 
     return (
         <>
-            <form onSubmit={onFormSubmit} className="ui form">
-                <div className="field">
-                    <label>Image Search</label>
-                    <input 
-                        type="text"
-                        name="search"
-                        placeholder=""
-                        value={term}
-                        onChange={(event) => setTerm(event.target.value)}
-                        // onChange : inputの内容が変わった時に関数発火
-                        // event.target.value＝inputに入力された文字列 → 入力された値がsetTerm()で管理される
-                    />
-                </div>
-            </form>
+            <div className='ui segment'>
+                <form onSubmit={onFormSubmit} className="ui form">
+                    <div className="field">
+                        <label>Image Search</label>
+                        <input 
+                            type="text"
+                            name="search"
+                            placeholder=""
+                            value={term}
+                            onChange={(event) => setTerm(event.target.value)}
+                            // onChange : inputの内容が変わった時に関数発火
+                            // event.target.value＝inputに入力された文字列 → 入力された値がsetTerm()で管理される
+                        />
+                    </div>
+                </form>
+            </div>
         </>
     );
 };

@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import axios  from 'axios';
 import SearchBar from './components/SearchBar';
 import ImageList from './components/ImageList';
+import logo from './logo.png';
 
 const App = () => {
-    // const onSearchSubmit = (term) => {
-    //     console.log(term);
-    // };
 
     const [images, setImages] = useState([]);
+    
+    // 環境変数の導入 .env.local GithubにAPIキーを載せることを防ぐ
+    const ApiKey = process.env.REACT_APP_PIXABAY_APIKEY;
 
     const onSearchSubmit = async(term) => {
         try{
             const params = {
-                key: "25733271-08c1e7594eeaa881e2b4d1ea2",
+                key: ApiKey,
                 q: term,
             };
             const response = await axios.get("https://pixabay.com/api/", {params});
@@ -28,6 +29,7 @@ const App = () => {
 
     return (
         <div className='ui container' style={{marginTop: '20px'}}>
+            <img src={logo} alt='pixabay-logo' className='pixabay-logo' />
             {/* onSearchSubmit関数をpropsとして渡す */}
             <SearchBar onSubmit={onSearchSubmit} />
             <ImageList images={images} />
